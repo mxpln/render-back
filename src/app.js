@@ -6,6 +6,9 @@ const errorHandler = require('./api/middleware/errorHandler');
 const routes = require('./api/routes');
 
 const app = express();
+app.set('trust proxy', 1 /* number of proxies between user and server */)
+app.get('/ip', (request, response) => response.send(request.ip))
+
 const port = process.env.PORT || 3010;
 
 // Configure Express
